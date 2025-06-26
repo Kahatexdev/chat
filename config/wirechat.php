@@ -65,7 +65,7 @@ return [
     | This will be used to highlight buttons and elements.
     |
     */
-    'color' => '#a855f7',
+    'color' => '#4ED7F1',
 
     /*
     |--------------------------------------------------------------------------
@@ -76,7 +76,7 @@ return [
     | This can be any valid route or URL in your application.
     |
     */
-    'home_route' => '/',
+    'home_route' => '/chat/public/chats/',
 
     /*
     |--------------------------------------------------------------------------
@@ -172,11 +172,11 @@ return [
 
         // Media Upload Settings
         'media_mimes' => ['png', 'jpg', 'jpeg', 'gif', 'mov', 'mp4'],
-        'media_max_upload_size' => 12288, // Size in KB (12 MB)
+        'media_max_upload_size' => 2048, // Size in KB (12 MB)
 
         // File Upload Settings
         'file_mimes' => ['zip', 'rar', 'txt', 'pdf'],
-        'file_max_upload_size' => 12288, // Size in KB (12 MB)
+        'file_max_upload_size' => 5120, // Size in KB (12 MB)
     ],
 
 ];
