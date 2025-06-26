@@ -19,6 +19,8 @@ class Register extends Component
 
     /** @var string */
     public $password = '';
+    /** @var string */
+    public $Bagian = '';
 
     /** @var string */
     public $passwordConfirmation = '';
@@ -28,12 +30,13 @@ class Register extends Component
         $this->validate([
             'name' => ['required'],
             'email' => ['required', 'email', 'unique:users'],
+            'Bagian' => 'required',
             'password' => ['required', 'min:8', 'same:passwordConfirmation'],
         ]);
-
+        $fullName = $this->name . ' ' . $this->Bagian;
         $user = User::create([
             'email' => $this->email,
-            'name' => $this->name,
+            'name' => $fullName,
             'password' => Hash::make($this->password),
         ]);
 
@@ -41,7 +44,7 @@ class Register extends Component
 
         Auth::login($user, true);
 
-        return redirect()->intended(route('home'));
+        return redirect()->intended('/chats');
     }
 
     public function render()

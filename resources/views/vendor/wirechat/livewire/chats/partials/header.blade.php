@@ -1,4 +1,3 @@
-
 @use('Namu\WireChat\Facades\WireChat')
 
 <header class="px-3 z-10 sticky top-0 w-full py-2 " dusk="header">
@@ -8,9 +7,9 @@
     <section class=" justify-between flex items-center   pb-2">
 
         @if (isset($title))
-            <div class="flex items-center gap-2 truncate  " wire:ignore>
-                <h2 class=" text-2xl font-bold dark:text-white"  dusk="title">{{$title}}</h2> 
-            </div>
+        <div class="flex items-center gap-2 truncate  " wire:ignore>
+            <h2 class=" text-2xl font-bold dark:text-white" dusk="title">Kahatext</h2>
+        </div>
         @endif
 
 
@@ -18,7 +17,7 @@
         <div class="flex gap-x-3 items-center  ">
 
             @if ($showNewChatModalButton)
-            
+
             <x-wirechat::actions.new-chat widget="{{$this->isWidget()}}">
                 <button id="open-new-chat-modal-button" class=" flex items-center focus:outline-hidden">
                     <svg class="w-8 h-8 -mb-1 text-gray-500 cursor-pointer hover:text-gray-900 dark:hover:text-gray-200 dark:text-gray-300"
@@ -36,25 +35,47 @@
             @endif
 
 
-            {{-- Only show if is not widget --}}
-            @if ($showHomeRouteButton)
-            <a id="redirect-button" href="{{ config('wirechat.home_route', '/') }}" class="flex items-center">
-                {{-- <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="bi bi-x-octagon-fill w-6 h-6 text-gray-500 dark:text-gray-400 transition-colors duration-300 dark:hover:text-gray-500 hover:text-gray-900" viewBox="0 0 16 16">
-                    <path d="M11.46.146A.5.5 0 0 0 11.107 0H4.893a.5.5 0 0 0-.353.146L.146 4.54A.5.5 0 0 0 0 4.893v6.214a.5.5 0 0 0 .146.353l4.394 4.394a.5.5 0 0 0 .353.146h6.214a.5.5 0 0 0 .353-.146l4.394-4.394a.5.5 0 0 0 .146-.353V4.893a.5.5 0 0 0-.146-.353zm-6.106 4.5L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 1 1 .708-.708"/>
-                </svg> --}}
+            <div x-data="{ showLogoutModal: false }">
+                @if ($showHomeRouteButton)
+                <button
+                    @click="showLogoutModal = true"
+                    class="flex items-center focus:outline-none"
+                    type="button">
+                    <svg class="bi bi-x-octagon-fill w-8 my-auto h-8 stroke-[0.9] text-gray-500 dark:text-gray-400 transition-colors duration-300 dark:hover:text-gray-500 hover:text-gray-900"
+                        xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+                        <g fill="none" stroke="currentColor">
+                            <path d="M5 12.76c0-1.358 0-2.037.274-2.634c.275-.597.79-1.038 1.821-1.922l1-.857C9.96 5.75 10.89 4.95 12 4.95s2.041.799 3.905 2.396l1 .857c1.03.884 1.546 1.325 1.82 1.922c.275.597.275 1.276.275 2.634V17c0 1.886 0 2.828-.586 3.414S16.886 21 15 21H9c-1.886 0-2.828 0-3.414-.586S5 18.886 5 17z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M14.5 21v-5a1 1 0 0 0-1-1h-3a1 1 0 0 0-1 1v5" />
+                        </g>
+                    </svg>
+                </button>
+                @endif
 
-                <svg class="bi bi-x-octagon-fill w-8 my-auto h-8 stroke-[0.9] text-gray-500 dark:text-gray-400 transition-colors duration-300 dark:hover:text-gray-500 hover:text-gray-900"
-                    xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
-                    <g fill="none" stroke="currentColor">
-                        <path
-                            d="M5 12.76c0-1.358 0-2.037.274-2.634c.275-.597.79-1.038 1.821-1.922l1-.857C9.96 5.75 10.89 4.95 12 4.95s2.041.799 3.905 2.396l1 .857c1.03.884 1.546 1.325 1.82 1.922c.275.597.275 1.276.275 2.634V17c0 1.886 0 2.828-.586 3.414S16.886 21 15 21H9c-1.886 0-2.828 0-3.414-.586S5 18.886 5 17z" />
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M14.5 21v-5a1 1 0 0 0-1-1h-3a1 1 0 0 0-1 1v5" />
-                    </g>
-                </svg>
-                {{-- <svg class="bi bi-x-octagon-fill w-7 h-7 stroke-[0.5] text-gray-500 dark:text-gray-400 transition-colors duration-300 dark:hover:text-gray-500 hover:text-gray-900" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256"><path d="M219.31,108.68l-80-80a16,16,0,0,0-22.62,0l-80,80A15.87,15.87,0,0,0,32,120v96a8,8,0,0,0,8,8H216a8,8,0,0,0,8-8V120A15.87,15.87,0,0,0,219.31,108.68ZM208,208H48V120l80-80,80,80Z"></path></svg> --}}
-            </a>
-            @endif
+                <!-- Modal -->
+                <div
+                    x-show="showLogoutModal"
+                    x-cloak
+                    class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+                    <div class="bg-white rounded-lg shadow-lg p-6 w-full max-w-sm">
+                        <h2 class="text-lg font-semibold text-gray-800 mb-4">Yakin ingin logout?</h2>
+                        <div class="flex justify-end gap-3">
+                            <button
+                                @click="showLogoutModal = false"
+                                class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 text-sm">
+                                Batal
+                            </button>
+
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <button type="submit" class="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 text-sm">
+                                    Logout
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 
 
         </div>
@@ -65,24 +86,24 @@
 
     {{-- Search input --}}
     @if ($allowChatsSearch)
-        <section class="mt-4">
-            <div class="px-2 rounded-lg dark:bg-[var(--wc-dark-secondary)]  bg-[var(--wc-light-secondary)]  grid grid-cols-12 items-center">
+    <section class="mt-4">
+        <div class="px-2 rounded-lg dark:bg-[var(--wc-dark-secondary)]  bg-[var(--wc-light-secondary)]  grid grid-cols-12 items-center">
 
-                <label for="chats-search-field" class="col-span-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="size-5 w-5 h-5 dark:text-gray-300">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-                    </svg>
-                </label>
+            <label for="chats-search-field" class="col-span-1">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="size-5 w-5 h-5 dark:text-gray-300">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                </svg>
+            </label>
 
-                <input id="chats-search-field" name="chats_search" maxlength="100" type="search" wire:model.live.debounce='search'
-                    placeholder="{{ __('wirechat::chats.inputs.search.placeholder')  }}" autocomplete="off"
-                    class=" col-span-11 border-0  bg-inherit dark:text-white outline-hidden w-full focus:outline-hidden  focus:ring-0 hover:ring-0">
-          
-                </div>
+            <input id="chats-search-field" name="chats_search" maxlength="100" type="search" wire:model.live.debounce='search'
+                placeholder="{{ __('wirechat::chats.inputs.search.placeholder')  }}" autocomplete="off"
+                class=" col-span-11 border-0  bg-inherit dark:text-white outline-hidden w-full focus:outline-hidden  focus:ring-0 hover:ring-0">
 
-        </section>
+        </div>
+
+    </section>
     @endif
 
 </header>
