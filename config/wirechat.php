@@ -130,7 +130,7 @@ return [
     */
     'notifications' => [
         'enabled' => true,
-        'main_sw_script' => 'sw.js', // Relative to public path
+        'main_sw_script' => 'chat/public/sw.js', // Relative to public path
     ],
 
     /*

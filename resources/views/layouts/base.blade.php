@@ -27,6 +27,25 @@
 
 <body>
     @yield('body')
+<script>
+        window.WirechatConfig = {
+            notifications: {
+                enabled: {{ config('wirechat.notifications.enabled') ? 'true' : 'false' }}
+            }
+        };
+
+        if ('serviceWorker' in navigator && WirechatConfig.notifications.enabled) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register(
+                    '/chat/public/{{ config("wirechat.notifications.main_sw_script") }}',
+                    { scope: '/chat/public/' }
+                )
+                .then(reg => console.log('SW scope:', reg.scope))
+                .catch(err => console.error('SW register failed:', err));
+            });
+        }
+    </script>
+
 </body>
 
 </html>

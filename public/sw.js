@@ -1,6 +1,5 @@
 // In host's sw.js
-importScripts('./js/wirechat/sw.js');
-
+importScripts('/chat/public/js/wirechat/sw.js');
 
 
 // Example: Custom event listener in main SW
