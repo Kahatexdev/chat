@@ -171,7 +171,18 @@ return [
         'max_uploads' => 10,
 
         // Media Upload Settings
-        'media_mimes' => ['png', 'jpg', 'jpeg', 'gif', 'mov', 'mp4'],
+        'media_mimes' => [
+            'png',
+            'jpg',
+            'jpeg',
+            'gif',
+            'mov',
+            'mp4',
+            'xlsx',
+            'xls',
+            'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+            'application/vnd.ms-excel',
+        ],
         'media_max_upload_size' => 2048, // Size in KB (12 MB)
 
         // File Upload Settings
