@@ -65,7 +65,7 @@ return [
     | This will be used to highlight buttons and elements.
     |
     */
-    'color' => '#a855f7',
+    'color' => '#4ED7F1',
 
     /*
     |--------------------------------------------------------------------------
@@ -76,7 +76,7 @@ return [
     | This can be any valid route or URL in your application.
     |
     */
-    'home_route' => '/',
+    'home_route' => '/chat/public/chats/',
 
     /*
     |--------------------------------------------------------------------------
