@@ -5,7 +5,7 @@
         <h2 class="mt-6 text-3xl font-extrabold text-center text-gray-900 leading-9 flex flex-col items-center gap-2">
             <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="w-20 h-20 text-indigo-600"
+                class="w-20 h-20 text-sky-600"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke-width="1.5"
@@ -20,7 +20,7 @@
         <p class="mt-2 text-sm text-center text-gray-600 leading-5">
             Atau
             <a href="{{ route('login') }}"
-                class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150">
+                class="font-medium text-sky-600 hover:text-sky-500 focus:outline-none focus:underline transition ease-in-out duration-150">
                 Klik di sini untuk Login
             </a>
         </p>
@@ -125,7 +125,7 @@
 
                 <div class="mt-6">
                     <span class="block w-full rounded-md shadow-sm">
-                        <button type="submit" class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:ring-indigo active:bg-indigo-700 transition duration-150 ease-in-out">
+                        <button type="submit" class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-sky-600 border border-transparent rounded-md hover:bg-sky-500 focus:outline-none focus:border-sky-700 focus:ring-sky active:bg-sky-700 transition duration-150 ease-in-out">
                             Register
                         </button>
                     </span>
