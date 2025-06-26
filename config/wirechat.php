@@ -175,7 +175,7 @@ return [
         'media_max_upload_size' => 2048, // Size in KB (12 MB)
 
         // File Upload Settings
-        'file_mimes' => ['zip', 'rar', 'txt', 'pdf', 'xlxs', 'xls'],
+        'file_mimes' => ['zip', 'rar', 'txt', 'pdf', 'xlsx', 'xls'],
         'file_max_upload_size' => 5120, // Size in KB (12 MB)
     ],
 
