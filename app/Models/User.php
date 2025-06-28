@@ -82,4 +82,11 @@ public function searchChatables(string $query): ?Collection
         return $this->hasVerifiedEmail() === true;
     }
 
+    // check if user is online
+    public function isOnline(): bool
+    {
+        return $this->last_seen && $this->last_seen->diffInMinutes(now()) < 5;
+    }
+    
+
 }
