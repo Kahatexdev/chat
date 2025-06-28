@@ -171,23 +171,84 @@ return [
         'max_uploads' => 10,
 
         // Media Upload Settings
+        // Media Upload Settings (gambar, video, audio, & spreadsheet ringan)
         'media_mimes' => [
+            // Images
             'png',
             'jpg',
             'jpeg',
             'gif',
-            'mov',
+            'bmp',
+            'webp',
+            'svg',
+
+            // Video
             'mp4',
+            'mov',
+            'avi',
+            'mkv',
+            'webm',
+
+            // Audio
+            'mp3',
+            'wav',
+            'ogg',
+
             'xlsx',
             'xls',
+            'csv',
+            'et',   // WPS spreadsheet
+            'ett',  // WPS template
+            // MIME full (beberapa browser kirim MIME bukan ekstensinya)
             'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
             'application/vnd.ms-excel',
+            'text/csv',
+            'application/vnd.ms-works', // fallback WPS
         ],
-        'media_max_upload_size' => 2048, // Size in KB (12 MB)
+        'media_max_upload_size' => 2048, // KB (2 MB) — sesuaikan jika perlu lebih besar
 
-        // File Upload Settings
-        'file_mimes' => ['zip', 'rar', 'txt', 'pdf', 'xlsx', 'xls','csv'],
-        'file_max_upload_size' => 5120, // Size in KB (12 MB)
+        // File Upload Settings (dokumen & arsip)
+        'file_mimes' => [
+            // Office documents
+            'pdf',
+            'doc',
+            'docx',
+            'xls',
+            'xlsx',
+            'ppt',
+            'pptx',
+            'csv',
+            // ZIP / arsip
+            'zip',
+            'rar',
+            '7z',
+            'tar',
+            'gz',
+            // Teks & kode
+            'txt',
+            'md',
+            'json',
+            'xml',
+            'et',   // WPS spreadsheet
+            'ett',  // WPS template
+            // MIME full untuk konsistensi
+            'application/pdf',
+            'application/msword',
+            'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+            'application/vnd.ms-excel',
+            'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+            'application/vnd.ms-powerpoint',
+            'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+            'text/plain',
+            'text/csv',
+            'application/vnd.ms-works',
+            'application/zip',
+            'application/x-rar-compressed',
+            'application/x-7z-compressed',
+            'application/x-tar',
+            'application/gzip',
+        ],
+        'file_max_upload_size' => 5120, // KB (5 MB) — sesuaikan sesuai kebutuhan
     ],
 
 ];
