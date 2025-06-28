@@ -60,25 +60,51 @@
                 </span>
 
                 {{-- Message status indicators (only for sent messages) --}}
-                {{-- @if ($belongsToAuth)
+                @if ($belongsToAuth)
                     <div class="flex items-center ml-1">
                         @if ($message?->read_at)
-                            <svg class="w-4 h-4 text-blue-300" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                                <path d="M12.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-1-1a1 1 0 011.414-1.414L4 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                            </svg>
+                        <svg class="w-5 h-5 text-white-400" fill="currentColor" viewBox="0 0 18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <!-- Checkmark pertama (belakang) -->
+                            <path
+                              d="M3.5 9l2.5 2.5 6-6"
+                              fill="none"
+                              transform="translate(-1, 0)"
+                            />
+                            <!-- Checkmark kedua (depan) -->
+                            <path
+                              d="M3.5 9l2.5 2.5 6-6"
+                              fill="none"
+                              transform="translate(2.5, 0)"
+                            />
+                          </svg>
                         @elseif ($message?->delivered_at)
-                            <svg class="w-4 h-4 text-gray-300" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                                <path d="M12.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-1-1a1 1 0 011.414-1.414L4 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                            </svg>
+                        <svg class="w-5 h-5 text-gray-400" fill="currentColor" viewBox="0 0 18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <!-- Checkmark pertama (belakang) -->
+                            <path
+                              d="M3.5 9l2.5 2.5 6-6"
+                              fill="none"
+                              transform="translate(-1, 0)"
+                            />
+                            <!-- Checkmark kedua (depan) -->
+                            <path
+                              d="M3.5 9l2.5 2.5 6-6"
+                              fill="none"
+                              transform="translate(2.5, 0)"
+                            />
+                          </svg>
                         @else
-                            <svg class="w-4 h-4 text-gray-300" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                            </svg>
+                        <svg class="w-5 h-5 text-gray-400" fill="currentColor" viewBox="0 0 18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            
+                            <!-- Checkmark kedua (depan) -->
+                            <path
+                              d="M3.5 9l2.5 2.5 6-6"
+                              fill="none"
+                              transform="translate(2.5, 0)"
+                            />
+                          </svg>
                         @endif
                     </div>
-                @endif --}}
+                @endif
             </div>
         </div>
 

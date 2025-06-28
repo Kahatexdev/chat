@@ -7,89 +7,88 @@ return [
      *------------------------*/
     'labels' => [
 
-        'you_replied_to_yourself' => 'You replied to Yourself',
-        'participant_replied_to_you' => ':sender replied to You',
-        'participant_replied_to_themself' => ':sender replied to Themself',
-        'participant_replied_other_participant' => ':sender replied to :receiver',
-        'you' => 'You',
-        'user' => 'User',
-        'replying_to' => 'Replying to :participant',
-        'replying_to_yourself' => 'Replying to Yourself',
-        'attachment' => 'Attachment',
+        'you_replied_to_yourself'            => 'Kamu membalas dirimu sendiri',
+        'participant_replied_to_you'         => ':sender membalas kamu',
+        'participant_replied_to_themself'    => ':sender membalas mereka sendiri',
+        'participant_replied_other_participant' => ':sender membalas :receiver',
+        'you'                                => 'Kamu',
+        'user'                               => 'Pengguna',
+        'replying_to'                        => 'Membalas :participant',
+        'replying_to_yourself'               => 'Membalas diri sendiri',
+        'attachment'                         => 'Lampiran',
     ],
 
     'inputs' => [
         'message' => [
-            'label' => 'Message',
-            'placeholder' => 'Type a message',
+            'label'       => 'Pesan',
+            'placeholder' => 'Ketik pesan',
         ],
         'media' => [
-            'label' => 'Media',
-            'placeholder' => 'Media',
+            'label'       => 'Media',
+            'placeholder' => 'Pilih media',
         ],
         'files' => [
-            'label' => 'Files',
-            'placeholder' => 'Files',
+            'label'       => 'Berkas',
+            'placeholder' => 'Pilih berkas',
         ],
     ],
 
     'message_groups' => [
-        'today' => 'Today',
-        'yesterday' => 'Yesterday',
-
+        'today'     => 'Hari ini',
+        'yesterday' => 'Kemarin',
     ],
 
     'actions' => [
         'open_group_info' => [
-            'label' => 'Group Info',
+            'label' => 'Info Grup',
         ],
         'open_chat_info' => [
-            'label' => 'Chat Info',
+            'label' => 'Info Obrolan',
         ],
         'close_chat' => [
-            'label' => 'Close Chat',
+            'label' => 'Tutup Obrolan',
         ],
         'clear_chat' => [
-            'label' => 'Clear Chat History',
-            'confirmation_message' => 'Are you sure you want to clear your chat history? This will only clear your chat and will not affect other participants.',
+            'label'               => 'Bersihkan Riwayat Obrolan',
+            'confirmation_message' => 'Yakin ingin membersihkan riwayat obrolan? Ini hanya akan membersihkan di sisi kamu.',
         ],
         'delete_chat' => [
-            'label' => 'Delete Chat',
-            'confirmation_message' => 'Are you sure you want to delete this chat? This will only remove the chat from your side and will not delete it for other participants.',
+            'label'               => 'Hapus Obrolan',
+            'confirmation_message' => 'Yakin ingin menghapus obrolan ini? Ini hanya akan menghapus di sisi kamu.',
         ],
 
         'delete_for_everyone' => [
-            'label' => 'Delete for everyone',
-            'confirmation_message' => 'Are you sure?',
+            'label'               => 'Hapus untuk semua',
+            'confirmation_message' => 'Yakin ingin menghapus untuk semua?',
         ],
         'delete_for_me' => [
-            'label' => 'Delete for me',
-            'confirmation_message' => 'Are you sure?',
+            'label'               => 'Hapus untuk saya',
+            'confirmation_message' => 'Yakin ingin menghapus untuk saya?',
         ],
         'reply' => [
-            'label' => 'Reply',
+            'label' => 'Balas',
         ],
 
         'exit_group' => [
-            'label' => 'Exit Group',
-            'confirmation_message' => 'Are you sure you want to exit this group?',
+            'label'               => 'Keluar Grup',
+            'confirmation_message' => 'Yakin ingin keluar dari grup ini?',
         ],
         'upload_file' => [
-            'label' => 'File',
+            'label' => 'Berkas',
         ],
         'upload_media' => [
-            'label' => 'Photos & Videos',
+            'label' => 'Foto & Video',
         ],
     ],
 
     'messages' => [
 
-        'cannot_exit_self_or_private_conversation' => 'Cannot exit self or private conversation',
-        'owner_cannot_exit_conversation' => 'Owner cannot exit conversation',
-        'rate_limit' => 'Too many attempts!, Please slow down',
-        'conversation_not_found' => 'Conversation not found.',
-        'conversation_id_required' => 'A conversation id is required',
-        'invalid_conversation_input' => 'Invalid conversation input.',
+        'cannot_exit_self_or_private_conversation' => 'Tidak dapat keluar dari percakapan pribadi atau diri sendiri',
+        'owner_cannot_exit_conversation'           => 'Pemilik tidak dapat keluar dari percakapan',
+        'rate_limit'                               => 'Terlalu sering! Mohon tunggu sebentar.',
+        'conversation_not_found'                   => 'Percakapan tidak ditemukan.',
+        'conversation_id_required'                 => 'ID percakapan dibutuhkan.',
+        'invalid_conversation_input'               => 'Input percakapan tidak valid.',
     ],
 
     /**-------------------------
@@ -98,18 +97,17 @@ return [
 
     'info' => [
         'heading' => [
-            'label' => 'Chat Info',
+            'label' => 'Info Obrolan',
         ],
         'actions' => [
             'delete_chat' => [
-                'label' => 'Delete Chat',
-                'confirmation_message' => 'Are you sure you want to delete this chat? This will only remove the chat from your side and will not delete it for other participants.',
+                'label'               => 'Hapus Obrolan',
+                'confirmation_message' => 'Yakin ingin menghapus obrolan ini? Ini hanya akan menghapus di sisi kamu.',
             ],
         ],
         'messages' => [
-            'invalid_conversation_type_error' => 'Only private and self conversations allowed',
+            'invalid_conversation_type_error' => 'Hanya percakapan privat dan diri sendiri yang diperbolehkan',
         ],
-
     ],
 
     /**-------------------------
@@ -121,150 +119,143 @@ return [
         // Group info component
         'info' => [
             'heading' => [
-                'label' => 'Group Info',
+                'label' => 'Info Grup',
             ],
             'labels' => [
-                'members' => 'Members',
-                'add_description' => 'Add a group description',
+                'members'         => 'Anggota',
+                'add_description' => 'Tambahkan deskripsi grup',
             ],
             'inputs' => [
                 'name' => [
-                    'label' => 'Group name',
-                    'placeholder' => 'Enter Name',
+                    'label'       => 'Nama Grup',
+                    'placeholder' => 'Masukkan nama',
                 ],
                 'description' => [
-                    'label' => 'Description',
-                    'placeholder' => 'Optional',
+                    'label'       => 'Deskripsi',
+                    'placeholder' => 'Opsional',
                 ],
                 'photo' => [
-                    'label' => 'Photo',
+                    'label' => 'Foto',
                 ],
             ],
             'actions' => [
                 'delete_group' => [
-                    'label' => 'Delete Group',
-                    'confirmation_message' => 'Are you sure you want to delete this Group ?.',
-                    'helper_text' => 'Before you can delete the group, you need to remove all group members.',
+                    'label'               => 'Hapus Grup',
+                    'confirmation_message' => 'Yakin ingin menghapus grup ini?',
+                    'helper_text'         => 'Sebelum menghapus, hapus semua anggota grup terlebih dahulu.',
                 ],
                 'add_members' => [
-                    'label' => 'Add Members',
+                    'label' => 'Tambahkan Anggota',
                 ],
                 'group_permissions' => [
-                    'label' => 'Group Permissions',
+                    'label' => 'Hak Akses Grup',
                 ],
                 'exit_group' => [
-                    'label' => 'Exit Group',
-                    'confirmation_message' => 'Are you sure you want to exit Group ?.',
-
+                    'label'               => 'Keluar Grup',
+                    'confirmation_message' => 'Yakin ingin keluar dari grup ini?',
                 ],
             ],
             'messages' => [
-                'invalid_conversation_type_error' => 'Only group conversations allowed',
+                'invalid_conversation_type_error' => 'Hanya percakapan grup yang diperbolehkan',
             ],
         ],
+
         // Members component
         'members' => [
             'heading' => [
-                'label' => 'Members',
+                'label' => 'Anggota',
             ],
             'inputs' => [
                 'search' => [
-                    'label' => 'Search',
-                    'placeholder' => 'Search Members',
+                    'label'       => 'Cari',
+                    'placeholder' => 'Cari anggota',
                 ],
             ],
             'labels' => [
-                'members' => 'Members',
-                'owner' => 'Owner',
-                'admin' => 'Admin',
-                'no_members_found' => 'No Members found',
+                'members'          => 'Anggota',
+                'owner'            => 'Pemilik',
+                'admin'            => 'Admin',
+                'no_members_found' => 'Tidak ada anggota',
             ],
             'actions' => [
                 'send_message_to_yourself' => [
-                    'label' => 'Message Yourself',
-
+                    'label' => 'Kirim ke diri sendiri',
                 ],
                 'send_message_to_member' => [
-                    'label' => 'Message :member',
-
+                    'label' => 'Kirim ke :member',
                 ],
                 'dismiss_admin' => [
-                    'label' => 'Dismiss As Admin',
-                    'confirmation_message' => 'Are you sure you want to dismiss :member as Admin ?.',
+                    'label'               => 'Nonaktifkan Admin',
+                    'confirmation_message' => 'Yakin ingin menonaktifkan :member sebagai Admin?',
                 ],
                 'make_admin' => [
-                    'label' => 'Make Admin',
-                    'confirmation_message' => 'Are you sure you want to make :member an Admin ?.',
+                    'label'               => 'Jadikan Admin',
+                    'confirmation_message' => 'Yakin ingin menjadikan :member sebagai Admin?',
                 ],
                 'remove_from_group' => [
-                    'label' => 'Remove',
-                    'confirmation_message' => 'Are you sure you want remove :member from this Group ?.',
+                    'label'               => 'Hapus dari grup',
+                    'confirmation_message' => 'Yakin ingin menghapus :member dari grup?',
                 ],
                 'load_more' => [
-                    'label' => 'Load more',
+                    'label' => 'Muat lebih banyak',
                 ],
-
             ],
             'messages' => [
-                'invalid_conversation_type_error' => 'Only group conversations allowed',
+                'invalid_conversation_type_error' => 'Hanya percakapan grup yang diperbolehkan',
             ],
         ],
-        // add-Members component
+
+        // add-members component
         'add_members' => [
             'heading' => [
-                'label' => 'Add Members',
+                'label' => 'Tambah Anggota',
             ],
             'inputs' => [
                 'search' => [
-                    'label' => 'Search',
-                    'placeholder' => 'Search',
+                    'label'       => 'Cari',
+                    'placeholder' => 'Cari',
                 ],
-            ],
-            'labels' => [
-
             ],
             'actions' => [
                 'save' => [
-                    'label' => 'Save',
-
+                    'label' => 'Simpan',
                 ],
-
             ],
             'messages' => [
-                'invalid_conversation_type_error' => 'Only group conversations allowed',
-                'members_limit_error' => 'Members cannot exceed :count',
-                'member_already_exists' => ' Already added to group',
+                'invalid_conversation_type_error' => 'Hanya percakapan grup yang diperbolehkan',
+                'members_limit_error'             => 'Anggota tidak boleh lebih dari :count',
+                'member_already_exists'           => 'Sudah ditambahkan ke grup',
             ],
         ],
+
         // permissions component
         'permisssions' => [
             'heading' => [
-                'label' => 'Permissions',
+                'label' => 'Hak Akses',
             ],
             'inputs' => [
                 'search' => [
-                    'label' => 'Search',
-                    'placeholder' => 'Search',
+                    'label'       => 'Cari',
+                    'placeholder' => 'Cari',
                 ],
             ],
             'labels' => [
-                'members_can' => 'Members can',
-
+                'members_can' => 'Anggota dapat',
             ],
             'actions' => [
                 'edit_group_information' => [
-                    'label' => 'Edit Group Information',
-                    'helper_text' => 'This includes the name, icon and description',
+                    'label'       => 'Ubah Info Grup',
+                    'helper_text' => 'Termasuk nama, ikon, dan deskripsi grup',
                 ],
                 'send_messages' => [
-                    'label' => 'Send Messages',
+                    'label' => 'Kirim Pesan',
                 ],
                 'add_other_members' => [
-                    'label' => 'Add Other Members',
+                    'label' => 'Tambah Anggota Lain',
                 ],
-
             ],
             'messages' => [
+                // kosong kalau tidak ada
             ],
         ],
 

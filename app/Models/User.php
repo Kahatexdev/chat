@@ -87,6 +87,12 @@ public function searchChatables(string $query): ?Collection
     {
         return $this->last_seen && $this->last_seen->diffInMinutes(now()) < 5;
     }
+
+    // can remove user from group
+    public function canRemoveFromGroup(): bool
+    {
+        return $this->hasVerifiedEmail() === true;
+    }
     
 
 }
