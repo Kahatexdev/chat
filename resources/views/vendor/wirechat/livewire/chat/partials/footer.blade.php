@@ -13,13 +13,14 @@
             class=" px-3 md:px-1 border-t shadow-sm bg-[var(--wc-light-secondary)]  dark:bg-[var(--wc-dark-secondary)]   z-50   border-[var(--wc-light-primary)] dark:border-[var(--wc-dark-primary)] flex flex-col gap-3 items-center  w-full   mx-auto">
 
             {{-- Emoji section , we put it seperate to avoid interfering as overlay for form when opened --}}
-            <section wire:ignore x-cloak x-show="openEmojiPicker" x-transition:enter="transition  ease-out duration-180 transform"
+            <section wire:ignore x-cloak x-show="openEmojiPicker"
+                x-transition:enter="transition  ease-out duration-180 transform"
                 x-transition:enter-start=" translate-y-full" x-transition:enter-end=" translate-y-0"
                 x-transition:leave="transition ease-in duration-180 transform" x-transition:leave-start=" translate-y-0"
                 x-transition:leave-end="translate-y-full"
                 class="w-full flex hidden sm:flex   py-2 sm:px-4 py-1.5 border-b border-[var(--wc-light-primary)] dark:border-[var(--wc-dark-primary)]  h-96 min-w-full">
 
-                <emoji-picker  dusk="emoji-picker" style="width: 100%"
+                <emoji-picker dusk="emoji-picker" style="width: 100%"
                     class=" flex w-full h-full rounded-xl"></emoji-picker>
             </section>
             {{-- form and detail section  --}}
@@ -42,8 +43,8 @@
                                     <button @click="$wire.resetAttachmentErrors()">X</button>
                             </span>
                             @enderror --}}
-                                                {{-- todo:Show progress when uploading files --}}
-                                                {{-- <div  x-show="isUploading"  class="w-full">
+                            {{-- todo:Show progress when uploading files --}}
+                            {{-- <div  x-show="isUploading"  class="w-full">
                                     <progress class="w-full h-1 rounded-lg" max="100" x-bind:value="progress"></progress>
                                 </div> --}}
                             <section
@@ -192,7 +193,7 @@
                     <section class="p-px py-1 w-full col-span-12">
                         <div class="flex justify-between items-center dark:text-white">
                             <h6 class="text-sm">
-                                    {{ $replyMessage?->ownedBy($this->auth) ? __('wirechat::chat.labels.replying_to_yourself'): __('wirechat::chat.labels.replying_to',['participant'=>$replyMessage->sendable?->name])  }}
+                                {{ $replyMessage?->ownedBy($this->auth) ? __('wirechat::chat.labels.replying_to_yourself') : __('wirechat::chat.labels.replying_to', ['participant' => $replyMessage->sendable?->name]) }}
                             </h6>
                             <button wire:loading.attr="disabled" wire:click="removeReply()"
                                 class="disabled:cursor-progress">
@@ -344,7 +345,7 @@
                                             </span>
 
                                             <span class=" dark:text-white">
-                                               @lang('wirechat::chat.actions.upload_file.label')
+                                                @lang('wirechat::chat.actions.upload_file.label')
                                             </span>
                                         </div>
                                     </label>
@@ -377,7 +378,7 @@
                                             </span>
 
                                             <span class=" dark:text-white">
-                                               @lang('wirechat::chat.actions.upload_media.label')
+                                                @lang('wirechat::chat.actions.upload_media.label')
                                             </span>
                                         </div>
                                     </label>
@@ -395,8 +396,8 @@
                     <div @class(['flex gap-2 sm:px-2 w-full'])>
                         <textarea @focus-input-field.window="$el.focus()" autocomplete="off" x-model='body' x-ref="body"
                             wire:loading.delay.longest.attr="disabled" wire:target="sendMessage" id="chat-input-field" autofocus
-                            type="text" name="message" placeholder="{{ __('wirechat::chat.inputs.message.placeholder') }}" maxlength="1700" rows="1"
-                            @input="$el.style.height = 'auto'; $el.style.height = $el.scrollHeight + 'px';"
+                            type="text" name="message" placeholder="{{ __('wirechat::chat.inputs.message.placeholder') }}"
+                            maxlength="1700" rows="1" @input="$el.style.height = 'auto'; $el.style.height = $el.scrollHeight + 'px';"
                             @keydown.shift.enter.prevent="insertNewLine($el)" {{-- @keydown.enter.prevent prevents the
                                default behavior of Enter key press only if Shift is not held down. --}} @keydown.enter.prevent=""
                             @keyup.enter.prevent="$event.shiftKey ? null : (((body && body?.trim().length > 0) || ($wire.media && $wire.media.length > 0)) ? $wire.sendMessage() : null)"
@@ -440,7 +441,8 @@
                         <button
                             x-show="((body?.trim()?.length>0) ||  $wire.media.length > 0 || $wire.files.length > 0 )"
                             wire:loading.attr="disabled" wire:target="sendMessage" type="submit"
-                            id="sendMessageButton" class="cursor-pointer hover:text-[var(--wc-brand-primary)] transition-color ml-auto disabled:cursor-progress cursor-pointer font-bold">
+                            id="sendMessageButton"
+                            class="cursor-pointer hover:text-[var(--wc-brand-primary)] transition-color ml-auto disabled:cursor-progress cursor-pointer font-bold">
 
                             <svg class="w-7 h-7   dark:text-gray-200" xmlns="http://www.w3.org/2000/svg"
                                 width="36" height="36" viewBox="0 0 24 24" fill="none"
@@ -458,7 +460,8 @@
                         <button
                             x-show="!((body?.trim()?.length>0) || $wire.media.length > 0 || $wire.files.length > 0 )"
                             wire:loading.attr="disabled" wire:target="sendMessage" wire:click='sendLike()'
-                            type="button" class="hover:scale-105 transition-transform cursor-pointer group disabled:cursor-progress">
+                            type="button"
+                            class="hover:scale-105 transition-transform cursor-pointer group disabled:cursor-progress">
 
                             <!-- outlined heart -->
                             <span class=" group-hover:hidden transition">
@@ -485,135 +488,148 @@
 
                 </form>
             </section>
-
-
-
-            @script
-                <script>
-                    Alpine.data('attachments', (type = "media") => ({
-                        // State variables
-                        isDropping: false, // Tracks if a file is being dragged over the drop area
-                        type: type, // Type of file being uploaded (e.g., "media" or "file")
-                        isUploading: false, // Indicates if files are currently uploading
-                        MAXFILES: @json(config('wirechat.attachments.max_uploads', 5)), // Maximum number of files allowed
-                        maxSize: @json(config('wirechat.attachments.media_max_upload_size', 12288)) * 1024, // Max size per file (in bytes)
-                        allowedFileTypes: type === 'media' ? @json(config('wirechat.attachments.media_mimes')) :
-                        @json(config('wirechat.attachments.file_mimes')), // Allowed MIME types based on type
-                        progress: 0, // Progress of the current upload (0-100)
-                        wireModel: type, // The Livewire model to bind to
-
-                        // Handle file selection from the input field
-                        handleFileSelect(event, count) {
-                            if (event.target.files.length) {
-                                const files = event.target.files;
-
-                                // Validate selected files and upload if valid
-                                this.validateFiles(files, count)
-                                    .then((validFiles) => {
-                                        if (validFiles.length > 0) {
-                                            this.uploadFiles(validFiles);
-                                        } else {
-                                            console.log('No valid files to upload');
-                                        }
-                                    })
-                                    .catch((error) => {
-                                        console.log('Validation error:', error);
-                                    });
-                            }
-                        },
-
-                        // Upload files using Livewire's upload
-                        uploadFiles(files) {
-                            this.isUploading = true;
-                            this.progress = 0;
-
-                            // Initialize per-file progress tracking
-                            const fileProgress = Array.from(files).map(() => 0);
-                            files.forEach((file, index) => {
-                                $wire.upload(
-                                    `${this.wireModel}`, // Livewire model
-                                    file, // Single file
-                                    () => {
-                                        fileProgress[index] = 100; // Mark this file as complete
-                                        // this.isUploading = false;
-                                        this.progress = Math.round((fileProgress.reduce((a, b) => a + b, 0)) / files.length);
-                                    },
-                                    (error) => {
-                                        // this.isUploading = false;
-                                        fileProgress[index] = -1; // Mark as failed
-                                        $dispatch('wirechat-toast', { type: 'error', message: `Validation error: ${error}` });
-                                    },
-                                    (event) => {
-                                        fileProgress[index] = event.detail.progress; // Update per-file progress
-                                        this.progress = Math.round((fileProgress.reduce((a, b) => a + b, 0)) / files.length); // Overall progress
-                                    }
-                                );
-                            });
-                        },
-
-                        // Upload files using Livewire's uploadMultiple method
-                        
-                        // Remove an uploaded file from Livewire
-                        removeUpload(filename) {
-                            $wire.removeUpload(this.wireModel, filename);
-                        },
-
-                        // Validate selected files against constraints
-                        validateFiles(files, count) {
-                            const totalFiles = count + files.length; // Total file count including existing uploads
-
-                            // Check if total file count exceeds the maximum allowed
-                            if (totalFiles > this.MAXFILES) {
-                                files = Array.from(files).slice(0, this.MAXFILES -
-                                count); // Limit files to the allowed number
-                                $dispatch('wirechat-toast', {
-                                    type: 'warning',
-                                    message: @js(__('wirechat::validation.max.array', ['attribute' => __('wirechat::chat.inputs.media.label'),'max'=>config('wirechat.attachments.max_uploads', 5)]))
-                                });
-                            }
-
-                            // Filter invalid files based on size and type
-                            const invalidFiles = Array.from(files).filter((file) => {
-                                const fileType = file.type.split('/')[1].toLowerCase(); // Extract file extension
-                                return file.size > this.maxSize || !this.allowedFileTypes.includes(
-                                fileType); // Check size and type
-                            });
-
-                            // Filter valid files
-                            const validFiles = Array.from(files).filter((file) => {
-                                const fileType = file.type.split('/')[1].toLowerCase();
-                                return file.size <= this.maxSize && this.allowedFileTypes.includes(fileType);
-                            });
-
-                            // Handle invalid files by showing appropriate error messages
-                            if (invalidFiles.length > 0) {
-                                invalidFiles.forEach((file) => {
-                                    if (file.size > this.maxSize) {
-                                        $dispatch('wirechat-toast', {
-                                            type: 'warning',
-                                            message: @js(__('wirechat::validation.max.file', ['attribute' => __('wirechat::chat.inputs.media.label'),'max'=>config('wirechat.attachments.media_max_upload_size', 12288)]))
-                                         //   message: `File size exceeds the maximum limit (${this.maxSize / 1024 / 1024}MB): ${file.name}`
-                                        });
-                                    } else {
-                                        const extension = file.name.split('.').pop().toLowerCase();
-                                        $dispatch('wirechat-toast', {
-                                            type: 'warning',
-                                            message: @js(__('wirechat::validation.mimes', [ 'attribute' => __('wirechat::chat.inputs.media.label'), 'values' => implode(', ', config('wirechat.attachments.media_mimes')) ]))
-                                           // message: `One or more Files not uploaded: .${extension} (type not allowed)`
-                                        });
-
-                                    }
-                                });
-                            }
-
-                            return Promise.resolve(validFiles); // Return valid files for further processing
-                        }
-                    }));
-                </script>
-            @endscript
         </div>
     @endif
 
 
 
 </footer>
+@script
+    <script>
+        Alpine.data('attachments', (type = "media") => ({
+            // State variables
+            isDropping: false, // Tracks if a file is being dragged over the drop area
+            type: type, // Type of file being uploaded (e.g., "media" or "file")
+            isUploading: false, // Indicates if files are currently uploading
+            MAXFILES: @json(config('wirechat.attachments.max_uploads', 5)), // Maximum number of files allowed
+            maxSize: @json(config('wirechat.attachments.media_max_upload_size', 12288)) * 1024, // Max size per file (in bytes)
+            allowedFileTypes: (type === 'media' ?
+                @json(config('wirechat.attachments.media_mimes')) :
+                @json(config('wirechat.attachments.file_mimes'))
+            ).map(item => item.toLowerCase()), // Convert all to lowercase
+            progress: 0, // Progress of the current upload (0-100)
+            wireModel: type, // The Livewire model to bind to
+
+            // Handle file selection from the input field
+            handleFileSelect(event, count) {
+                if (event.target.files.length) {
+                    const files = event.target.files;
+
+                    // Validate selected files and upload if valid
+                    this.validateFiles(files, count)
+                        .then((validFiles) => {
+                            if (validFiles.length > 0) {
+                                this.uploadFiles(validFiles);
+                            } else {
+                                console.log('No valid files to upload');
+                            }
+                        })
+                        .catch((error) => {
+                            console.log('Validation error:', error);
+                        });
+                }
+            },
+
+            // Upload files using Livewire's upload
+            uploadFiles(files) {
+                this.isUploading = true;
+                this.progress = 0;
+
+                // Initialize per-file progress tracking
+                const fileProgress = Array.from(files).map(() => 0);
+                files.forEach((file, index) => {
+                    $wire.upload(
+                        `${this.wireModel}`, // Livewire model
+                        file, // Single file
+                        () => {
+                            fileProgress[index] = 100; // Mark this file as complete
+                            // this.isUploading = false;
+                            this.progress = Math.round((fileProgress.reduce((a, b) => a + b, 0)) /
+                                files.length);
+                        },
+                        (error) => {
+                            // this.isUploading = false;
+                            fileProgress[index] = -1; // Mark as failed
+                            $dispatch('wirechat-toast', {
+                                type: 'error',
+                                message: `Validation error: ${error}`
+                            });
+                        },
+                        (event) => {
+                            fileProgress[index] = event.detail.progress; // Update per-file progress
+                            this.progress = Math.round((fileProgress.reduce((a, b) => a + b, 0)) /
+                                files.length); // Overall progress
+                        }
+                    );
+                });
+            },
+
+            // Upload files using Livewire's uploadMultiple method
+
+            // Remove an uploaded file from Livewire
+            removeUpload(filename) {
+                $wire.removeUpload(this.wireModel, filename);
+            },
+
+            // Validate selected files against constraints
+            validateFiles(files, count) {
+                const totalFiles = count + files.length; // Total file count including existing uploads
+
+                // Check if total file count exceeds the maximum allowed
+                if (totalFiles > this.MAXFILES) {
+                    files = Array.from(files).slice(0, this.MAXFILES -
+                        count); // Limit files to the allowed number
+                    $dispatch('wirechat-toast', {
+                        type: 'warning',
+                        message: @js(__('wirechat::validation.max.array', ['attribute' => __('wirechat::chat.inputs.media.label'), 'max' => config('wirechat.attachments.max_uploads', 5)]))
+                    });
+                }
+
+                const invalidFiles = [];
+                const validFiles = [];
+
+                Array.from(files).forEach((file) => {
+                    const fileType = file.type.toLowerCase();
+                    const extension = file.name.split('.').pop().toLowerCase();
+                    const isSizeValid = file.size <= this.maxSize;
+                    const isTypeValid = this.allowedFileTypes.includes(fileType) ||
+                        this.allowedFileTypes.includes(extension);
+
+                    if (!isSizeValid || !isTypeValid) {
+                        invalidFiles.push(file);
+                    } else {
+                        validFiles.push(file);
+                    }
+                });
+
+                // Handle invalid files by showing appropriate error messages
+                if (invalidFiles.length > 0) {
+                    invalidFiles.forEach((file) => {
+                        if (file.size > this.maxSize) {
+                            $dispatch('wirechat-toast', {
+                                type: 'warning',
+                                message: @js(__('wirechat::validation.max.file', ['attribute' => __('wirechat::chat.inputs.media.label'), 'max' => config('wirechat.attachments.media_max_upload_size', 12288)]))
+                                //   message: `File size exceeds the maximum limit (${this.maxSize / 1024 / 1024}MB): ${file.name}`
+                            });
+                        } else {
+                            const extension = file.name.split('.').pop().toLowerCase();
+                            $dispatch('wirechat-toast', {
+                                type: 'warning',
+                                message: @js(
+    __('wirechat::validation.mimes', [
+        'attribute' => __('wirechat::chat.inputs.media.label'),
+        'values' => implode(', ', array_unique(config('wirechat.attachments.media_mimes'))),
+    ]),
+)
+                                // message: `One or more Files not uploaded: .${extension} (type not allowed)`
+                            });
+
+                        }
+                    });
+                }
+
+                return Promise.resolve(validFiles); // Return valid files for further processing
+            }
+        }));
+    </script>
+@endscript
