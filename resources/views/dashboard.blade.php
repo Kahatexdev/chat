@@ -10,6 +10,9 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     {{ __("You're logged in!") }}
+                    <div class="h-[calc(100vh_-_10.0rem)]"> {{-- Ensure a fixed-height parent --}}
+                        <livewire:wirechat.chats/>
+                    </div>
                 </div>
             </div>
         </div>
