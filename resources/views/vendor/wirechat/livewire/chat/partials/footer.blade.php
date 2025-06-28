@@ -615,15 +615,11 @@
                             const extension = file.name.split('.').pop().toLowerCase();
                             $dispatch('wirechat-toast', {
                                 type: 'warning',
-                                message: @js(
-    __('wirechat::validation.mimes', [
-        'attribute' => __('wirechat::chat.inputs.media.label'),
-        'values' => implode(', ', array_unique(config('wirechat.attachments.media_mimes'))),
-    ]),
-)
+                                message: @js(__('wirechat::validation.mimes', ['attribute' => __('wirechat::chat.inputs.media.label'),'values' => implode(', ', array_unique(config('wirechat.attachments.media_mimes'))),
+                                ]),
+                            )
                                 // message: `One or more Files not uploaded: .${extension} (type not allowed)`
                             });
-
                         }
                     });
                 }
