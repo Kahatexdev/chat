@@ -514,7 +514,7 @@
             handleFileSelect(event, count) {
                 if (event.target.files.length) {
                     const files = event.target.files;
-
+console.log(files);
                     // Validate selected files and upload if valid
                     this.validateFiles(files, count)
                         .then((validFiles) => {
@@ -592,9 +592,8 @@
                     const fileType = file.type.toLowerCase();
                     const extension = file.name.split('.').pop().toLowerCase();
                     const isSizeValid = file.size <= this.maxSize;
-                    const isTypeValid = this.allowedFileTypes.includes(fileType) ||
-                        this.allowedFileTypes.includes(extension);
-
+                    const isTypeValid = this.allowedFileTypes.includes(extension);
+			console.log('DBG:', file.name, 'ext='+extension, 'mime='+file.type);
                     if (!isSizeValid || !isTypeValid) {
                         invalidFiles.push(file);
                     } else {
