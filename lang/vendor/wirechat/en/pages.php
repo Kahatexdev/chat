@@ -2,11 +2,10 @@
 
 return [
 
-    // chat component
+    // Komponen obrolan
     'chat' => [
         'messages' => [
-            'welcome' => 'Select a conversation to start messaging',
-
+            'welcome' => 'Pilih percakapan untuk mulai mengirim pesan',
         ],
     ],
 ];

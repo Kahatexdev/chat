@@ -2,76 +2,71 @@
 
 return [
 
-    // new-chat component
+    // Komponen obrolan baru
     'chat' => [
         'labels' => [
-            'heading' => ' New Chat',
-            'you' => 'You',
-
+            'heading' => 'Obrolan Baru',
+            'you' => 'Anda',
         ],
 
         'inputs' => [
             'search' => [
-                'label' => 'Search Conversations',
-                'placeholder' => 'Search',
+                'label' => 'Cari Percakapan',
+                'placeholder' => 'Cari',
             ],
         ],
 
         'actions' => [
             'new_group' => [
-                'label' => 'New group',
+                'label' => 'Grup Baru',
             ],
-
         ],
 
         'messages' => [
-
-            'empty_search_result' => 'No users found matching your search.',
+            'empty_search_result' => 'Tidak ada pengguna yang cocok dengan pencarian Anda.',
         ],
     ],
 
-    // new-group component
+    // Komponen grup baru
     'group' => [
         'labels' => [
-            'heading' => ' New Chat',
-            'add_members' => ' Add Members',
-
+            'heading' => 'Obrolan Baru',
+            'add_members' => 'Tambah Anggota',
         ],
 
         'inputs' => [
             'name' => [
-                'label' => 'Group Name',
-                'placeholder' => 'Enter Name',
+                'label' => 'Nama Grup',
+                'placeholder' => 'Masukkan Nama',
             ],
             'description' => [
-                'label' => 'Description',
-                'placeholder' => 'Optional',
+                'label' => 'Deskripsi',
+                'placeholder' => 'Opsional',
             ],
             'search' => [
-                'label' => 'Search',
-                'placeholder' => 'Search',
+                'label' => 'Cari',
+                'placeholder' => 'Cari',
             ],
             'photo' => [
-                'label' => 'Photo',
+                'label' => 'Foto',
             ],
         ],
 
         'actions' => [
             'cancel' => [
-                'label' => 'Cancel',
+                'label' => 'Batal',
             ],
             'next' => [
-                'label' => 'Next',
+                'label' => 'Berikutnya',
             ],
             'create' => [
-                'label' => 'Create',
+                'label' => 'Buat',
             ],
-
         ],
 
         'messages' => [
-            'members_limit_error' => 'Members cannot exceed  :count',
-            'empty_search_result' => 'No users found matching your search.',
+            'members_limit_error' => 'Anggota tidak boleh lebih dari :count',
+            'empty_search_result' => 'Tidak ada pengguna yang cocok dengan pencarian Anda.',
         ],
     ],
 

@@ -3,22 +3,21 @@
 return [
 
     /**-------------------------
-     * Chats
+     * Obrolan
      *------------------------*/
     'labels' => [
-        'heading' => 'Chats',
-        'no_conversations_yet' => 'No conversations yet',
-        'you' => 'You',
-        'attachment' => 'Attachment',
-        'now' => 'Now',
-        'load_more' => 'Load more',
-
+        'heading' => 'Obrolan',
+        'no_conversations_yet' => 'Belum ada percakapan',
+        'you' => 'Anda',
+        'attachment' => 'Lampiran',
+        'now' => 'Sekarang',
+        'load_more' => 'Muat lebih banyak',
     ],
 
     'inputs' => [
         'search' => [
-            'label' => 'Search Conversations',
-            'placeholder' => 'Search',
+            'label' => 'Cari Percakapan',
+            'placeholder' => 'Cari',
         ],
     ],
 ];
