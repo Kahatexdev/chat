@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost/chat/public'),
+    'url' => env('APP_URL', 'http://172.23.44.14/chat/public'),
 
     /*
     |--------------------------------------------------------------------------

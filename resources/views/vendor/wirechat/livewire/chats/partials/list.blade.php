@@ -87,17 +87,30 @@
 
                 {{-- Read status --}}
                 {{-- Only show if AUTH is NOT onwer of message --}}
-                @if ($lastMessage != null && !$lastMessage?->ownedBy($this->auth) && !$isReadByAuth)
-                    <div x-show="showUnreadStatus" dusk="unreadMessagesDot" class=" col-span-2 flex flex-col text-center my-auto">
-                        {{-- Dots icon --}}
-                        <span dusk="unreadDotItem" class="sr-only">unread dot</span>
-                        <svg @style(['color:var(--wc-brand-primary)']) xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                            fill="currentColor" class="bi bi-dot w-10 h-10 text-blue-500" viewBox="0 0 16 16">
-                            <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
-                        </svg>
+                {{-- Read status di list chat, hanya untuk pesan yang dikirim oleh auth --}}
+@if($lastMessage && $belongsToAuth)
+<div class="flex items-center ml-auto mr-2">
+    @if($lastMessage->read_at)
+        {{-- Dua bluetick biru --}}
+        <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 18 18">
+            <path d="M3.5 9l2.5 2.5 6-6" transform="translate(-1,0)"/>
+            <path d="M3.5 9l2.5 2.5 6-6" transform="translate(2.5,0)"/>
+        </svg>
+    @elseif($lastMessage->delivered_at)
+        {{-- Dua check abu-abu --}}
+        <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 18 18">
+            <path d="M3.5 9l2.5 2.5 6-6" transform="translate(-1,0)"/>
+            <path d="M3.5 9l2.5 2.5 6-6" transform="translate(2.5,0)"/>
+        </svg>
+    @else
+        {{-- Satu check abu-abu --}}
+        <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 18 18">
+            <path d="M3.5 9l2.5 2.5 6-6" transform="translate(2.5,0)"/>
+        </svg>
+    @endif
+</div>
+@endif
 
-                    </div>
-                @endif
 
 
             </aside>
