@@ -4,33 +4,34 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Default Laravel Validation Language Lines
+    | Baris Bahasa Validasi Default Laravel
     |--------------------------------------------------------------------------
     |
-    | The following language lines contain the default  error messages used by
-    | the Laravel validator class. Some of these rules have multiple versions such
-    | as the size rules. Feel free to tweak each of these messages here.
+    | Baris bahasa berikut berisi pesan kesalahan default yang digunakan oleh
+    | kelas validasi Laravel. Beberapa aturan memiliki beberapa versi seperti
+    | aturan ukuran. Silakan sesuaikan pesan-pesan ini sesuai kebutuhan Anda.
     |
     */
-    'file' => 'The :attribute field must be a file.',
-    'image' => 'The :attribute field must be an image.',
-    'required' => 'The :attribute field is required.',
+
+    'file' => 'Isian :attribute harus berupa berkas.',
+    'image' => 'Isian :attribute harus berupa gambar.',
+    'required' => 'Isian :attribute wajib diisi.',
     'max' => [
-        'array' => 'The :attribute field must not have more than :max items.',
-        'file' => 'The :attribute field must not be greater than :max kilobytes.',
-        'numeric' => 'The :attribute field must not be greater than :max.',
-        'string' => 'The :attribute field must not be greater than :max characters.',
+        'array' => 'Isian :attribute tidak boleh memiliki lebih dari :max item.',
+        'file' => 'Ukuran berkas :attribute tidak boleh lebih dari :max kilobyte.',
+        'numeric' => 'Nilai :attribute tidak boleh lebih dari :max.',
+        'string' => 'Isian :attribute tidak boleh lebih dari :max karakter.',
     ],
-    'mimes' => 'The :attribute must be a file of type: :values.',
+    'mimes' => 'Berkas :attribute harus bertipe: :values.',
 
     /*
     |--------------------------------------------------------------------------
-    | Custom Validation Language Lines
+    | Baris Bahasa Validasi Kustom
     |--------------------------------------------------------------------------
     |
-    | Here you may specify custom validation messages for attributes using the
-    | convention "attribute.rule" to name the lines. This makes it quick to
-    | specify a specific custom language line for a given attribute rule.
+    | Di sini Anda dapat menentukan pesan validasi kustom untuk atribut tertentu
+    | menggunakan konvensi "attribute.rule" untuk menamai baris. Ini memudahkan
+    | dalam menetapkan pesan khusus untuk aturan atribut tertentu.
     |
     */
 
