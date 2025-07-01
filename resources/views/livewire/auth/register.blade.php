@@ -75,6 +75,7 @@
                             <option value="Packing">Packing</option>
                             <option value="CELUPAN">CELUPAN</option>
                             <option value="COVERING">COVERING</option>
+                            <option value="GD SETTING">GD SETTING</option>
                             <!-- Tambahkan bagian lain sesuai kebutuhan -->
                         </select>
                     </div>
